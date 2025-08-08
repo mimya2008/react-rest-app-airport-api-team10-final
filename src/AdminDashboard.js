@@ -4,7 +4,7 @@ import AirportTable from './components/tables/AirportTable';
 import AirlineTable from './components/tables/AirlineTable';
 import AircraftTable from './components/tables/AircraftTable';
 import PassengerTable from './components/tables/PassengerTable';
-
+import FlightTable from './components/tables/FlightTable';
 
 const entities = ['City', 'Airport', 'Airline', 'Aircraft', 'Passenger', 'Flight'];
 
@@ -32,6 +32,7 @@ function AdminDashboard() {
       {selectedEntity === 'airline' && <AirlineTable />}
       {selectedEntity === 'aircraft' && <AircraftTable />}
       {selectedEntity === 'passenger' && <PassengerTable />}
+      {selectedEntity === 'flight' && <FlightTable />}
     </div>
   );
 }

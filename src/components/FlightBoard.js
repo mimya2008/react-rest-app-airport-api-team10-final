@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ArrivalsTable from './tables/ArrivalsTable';
 import DeparturesTable from './tables/DeparturesTable';
+import '../components/styles.css';
 
 function FlightBoard({ selectedCityName, view }) {
     const [arrivals, setArrivals] = useState([]);

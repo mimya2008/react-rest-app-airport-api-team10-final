@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import FlightBoard from './components/FlightBoard';
 import planeImage from './plane.jpg';
+import './components/styles.css';
 
 class HomePage extends Component {
   constructor(props) {
     super(props);
     this.state = {
       cities: [],
-      selectedAirport: ""
+      selectedAirport: "",
+      view: ""
     };
   }
 
@@ -21,20 +23,28 @@ class HomePage extends Component {
     this.setState({ selectedAirport: e.target.value });
   };
 
+  showArrivals = () => {
+    this.setState({ view: 'arrivals' });
+  };
+
+  showDepartures = () => {
+    this.setState({ view: 'departures' });
+  };
+
   render() {
+    const { selectedAirport, view } = this.state;
 
-    const { selectedCityName, view } = this.state;
     return (
-      <div className="App d-flex flex-column min-vh-100">
-        <nav className="navbar navbar-light bg-light px-4">
-          <span className="navbar-brand mb-0 h1">Airport Flight Tracker</span>
-          <a href="/admindashboard" className="btn btn-primary">Admin</a>
-        </nav>
+      <div className="homepage d-flex flex-column min-vh-100 homepage-container">
+        <header className="header">
+          <h1 className="homepage-title">Airport Flight Tracker</h1>
+          <a href="/admindashboard" className="admin-button">Admin</a>
+        </header>
 
-        <div className="container text-center my-5">
+        <div className="container text-center my-5 homepage-content">
           <select
-            className="form-select w-50 mx-auto mb-4"
-            value={this.state.selectedAirport}
+            className="form-select w-50 mx-auto mb-4 airport-select"
+            value={selectedAirport}
             onChange={this.handleAirportChange}
           >
             <option value="">Select an Airport</option>
@@ -45,14 +55,27 @@ class HomePage extends Component {
             ))}
           </select>
 
-          <div className="d-flex justify-content-center gap-3 mb-5">
-            <button className="btn btn-success" onClick={this.showArrivals} disabled={!selectedCityName}>View Arrivals</button>
-            <button className="btn btn-info" onClick={this.showDepartures} disabled={!selectedCityName}>View Departures</button>
+          <div className="d-flex justify-content-center gap-3 mb-5 action-buttons">
+            <button
+              className="btn-arrivals"
+              onClick={this.showArrivals}
+              disabled={!selectedAirport}
+            >
+              View Arrivals
+            </button>
+            <button
+              className="btn-departures"
+              onClick={this.showDepartures}
+              disabled={!selectedAirport}
+            >
+              View Departures
+            </button>
           </div>
 
-          {view && selectedCityName && (
+
+          {view && selectedAirport && (
             <FlightBoard
-              selectedCityName={selectedCityName}
+              selectedCityName={selectedAirport}
               view={view}
             />
           )}
@@ -60,14 +83,16 @@ class HomePage extends Component {
           <img
             src={planeImage}
             alt="Airplane"
-            className="img-fluid"
-            style={{ maxHeight: '300px' }}
+            className="img-fluid plane-image"
+            width='800px'
+            height='600px'
           />
         </div>
 
-        <footer className="bg-light text-center py-3 mt-auto">
-          All rights reserved @Airport Flight Tracker
+        <footer className="footer">
+            &copy; {new Date().getFullYear()} Airport Flight Tracker. All rights reserved.
         </footer>
+
       </div>
     );
   }

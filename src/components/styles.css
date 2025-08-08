@@ -1,0 +1,135 @@
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background: linear-gradient(to bottom right, #0a0f3d, #1f4068, #4a6fa5);
+    color: white;
+    border: 10px solid #999;
+    box-sizing: border-box;
+    min-height: 100vh;
+  }
+  
+  .homepage {
+    background: linear-gradient(to bottom right, #0a0f3d, #1f4068, #4a6fa5);
+    color: white;
+  }
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    gap: 40rem;
+  }
+  
+  .header h1 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin: 0;
+    letter-spacing: 1px;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
+  }
+  
+  .admin-button, .btn-admin {
+    background-color: transparent;
+    color: white;
+    text-decoration: none;
+    border: 2px solid white;
+    border-radius: 8px;
+    padding: 0.5rem 1.2rem;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .admin-button:hover, .btn-admin:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    transform: scale(1.05);
+  }
+  
+  .container, .homepage-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+  }
+  
+  .airport-select, .custom-select {
+    width: 300px;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+    padding: 0.5rem;
+    border-radius: 8px;
+    border: 2px solid white;
+    background-color: transparent;
+    color: white;
+  }
+  
+  .button-group, .action-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    background-color: transparent;
+  }
+  
+  .btn-arrivals, .btn-departures {
+    padding: 0.6rem 1.5rem;
+    
+    font-size: 1.1rem;
+    border: 2px solid white;
+    border-radius: 8px;
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+  }
+  
+  .btn-arrivals:hover,
+  .btn-departures:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: scale(1.05);
+  }
+  
+  .btn-arrivals:disabled,
+  .btn-departures:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+  
+  
+  .view-button:hover,
+  .btn-arrivals:hover,
+  .btn-departures:hover,
+  .arrivals-button:hover,
+  .departures-button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: scale(1.05);
+}
+
+.airport-image, .plane-image {
+  max-width: 90%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  margin-top: 20px;
+}
+
+.footer, .homepage-footer {
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 0.95rem;
+    color: white;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(6px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.2);
+    margin-top: auto;
+    width: 90%;
+  }

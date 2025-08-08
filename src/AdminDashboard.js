@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import CityTable from './components/tables/CityTable';
 import AirportTable from './components/tables/AirportTable';
 import AirlineTable from './components/tables/AirlineTable';
+import AircraftTable from './components/tables/AircraftTable';
+
 
 
 
@@ -29,6 +31,7 @@ function AdminDashboard() {
       {selectedEntity === 'city' && <CityTable />}
       {selectedEntity === 'airport' && <AirportTable />}
       {selectedEntity === 'airline' && <AirlineTable />}
+      {selectedEntity === 'aircraft' && <AircraftTable />}
     </div>
   );
 }

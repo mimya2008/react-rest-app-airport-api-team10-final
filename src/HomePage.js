@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import FlightBoard from './components/FlightBoard';
 import planeImage from './plane.jpg';
 
 class HomePage extends Component {
@@ -21,6 +22,8 @@ class HomePage extends Component {
   };
 
   render() {
+
+    const { selectedCityName, view } = this.state;
     return (
       <div className="App d-flex flex-column min-vh-100">
         <nav className="navbar navbar-light bg-light px-4">
@@ -43,9 +46,16 @@ class HomePage extends Component {
           </select>
 
           <div className="d-flex justify-content-center gap-3 mb-5">
-            <button className="btn btn-success">View Arrivals</button>
-            <button className="btn btn-info">View Departures</button>
+            <button className="btn btn-success" onClick={this.showArrivals} disabled={!selectedCityName}>View Arrivals</button>
+            <button className="btn btn-info" onClick={this.showDepartures} disabled={!selectedCityName}>View Departures</button>
           </div>
+
+          {view && selectedCityName && (
+            <FlightBoard
+              selectedCityName={selectedCityName}
+              view={view}
+            />
+          )}
 
           <img
             src={planeImage}

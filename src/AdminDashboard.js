@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import CityTable from './components/tables/CityTable';
+import AirportTable from './components/tables/AirportTable';
 
 const entities = ['City', 'Airport', 'Airline', 'Aircraft', 'Passenger', 'Flight'];
 
@@ -23,6 +24,7 @@ function AdminDashboard() {
       </div>
 
       {selectedEntity === 'city' && <CityTable />}
+      {selectedEntity === 'airport' && <AirportTable />}
     </div>
   );
 }

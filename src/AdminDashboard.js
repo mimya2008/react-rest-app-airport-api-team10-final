@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import EntityTable from './EntityTable';
+import CityTable from './components/tables/CityTable';
 
 const entities = ['City', 'Airport', 'Airline', 'Aircraft', 'Passenger', 'Flight'];
 
@@ -22,9 +22,7 @@ function AdminDashboard() {
         ))}
       </div>
 
-      {selectedEntity && (
-        <EntityTable entity={selectedEntity} />
-      )}
+      {selectedEntity === 'city' && <CityTable />}
     </div>
   );
 }

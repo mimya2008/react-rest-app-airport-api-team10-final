@@ -101,7 +101,39 @@ body {
     opacity: 0.7;
     cursor: not-allowed;
   }
-  
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 1rem;
+    border: 2px solid #ccc; /* Table outer border */
+  }
+
+
+  table th,
+  table td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+  }
+
+  table th {
+    background-color: transparent;
+    color: inherit;
+    font-weight: bold;
+  }
+
+  .airport-select {
+    background-color: #fff;
+    color: #222;
+    border: 1px solid #ccc;
+  }
+
+  .airport-select option {
+    background-color: #fff;
+    color: #222;
+  }
+
   
   .view-button:hover,
   .btn-arrivals:hover,

@@ -7,32 +7,31 @@ class HomePage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      cities: [],
-      selectedAirport: "",
-      view: ""
+      airports: [],
+      selectedAirport: '',
+      view: ''
     };
   }
 
   componentDidMount() {
-    fetch('http://localhost:8080/cities')
-      .then(res => res.json())
-      .then(cities => this.setState({ cities }));
+    fetch('http://localhost:8080/airport')
+      .then(res => {
+        if (!res.ok) throw new Error('Failed to fetch airports');
+        return res.json();
+      })
+      .then(airports => this.setState({ airports }))
+      .catch(err => console.error(err));
   }
 
   handleAirportChange = (e) => {
     this.setState({ selectedAirport: e.target.value });
   };
 
-  showArrivals = () => {
-    this.setState({ view: 'arrivals' });
-  };
-
-  showDepartures = () => {
-    this.setState({ view: 'departures' });
-  };
+  showArrivals = () => this.setState({ view: 'arrivals' });
+  showDepartures = () => this.setState({ view: 'departures' });
 
   render() {
-    const { selectedAirport, view } = this.state;
+    const { selectedAirport, view, airports } = this.state;
 
     return (
       <div className="homepage d-flex flex-column min-vh-100 homepage-container">
@@ -48,34 +47,25 @@ class HomePage extends Component {
             onChange={this.handleAirportChange}
           >
             <option value="">Select an Airport</option>
-            {this.state.cities.map((city) => (
-              <option key={city.id} value={city.name}>
-                {city.name}
+            {airports.map(ap => (
+              <option key={ap.id} value={ap.name}>
+                {ap.name} ({ap.code})
               </option>
             ))}
           </select>
 
           <div className="d-flex justify-content-center gap-3 mb-5 action-buttons">
-            <button
-              className="btn-arrivals"
-              onClick={this.showArrivals}
-              disabled={!selectedAirport}
-            >
+            <button className="btn-arrivals" onClick={this.showArrivals} disabled={!selectedAirport}>
               View Arrivals
             </button>
-            <button
-              className="btn-departures"
-              onClick={this.showDepartures}
-              disabled={!selectedAirport}
-            >
+            <button className="btn-departures" onClick={this.showDepartures} disabled={!selectedAirport}>
               View Departures
             </button>
           </div>
 
-
           {view && selectedAirport && (
             <FlightBoard
-              selectedCityName={selectedAirport}
+              selectedAirportName={selectedAirport}
               view={view}
             />
           )}
@@ -84,15 +74,14 @@ class HomePage extends Component {
             src={planeImage}
             alt="Airplane"
             className="img-fluid plane-image"
-            width='800px'
-            height='600px'
+            width="800"
+            height="600"
           />
         </div>
 
         <footer className="footer">
-            &copy; {new Date().getFullYear()} Airport Flight Tracker. All rights reserved.
+          &copy; {new Date().getFullYear()} Airport Flight Tracker. All rights reserved.
         </footer>
-
       </div>
     );
   }

@@ -19,7 +19,7 @@ function AdminDashboard() {
         {entities.map((entity) => (
           <button
             key={entity}
-            className="btn btn-outline-primary"
+            className="btn-admin"
             onClick={() => setSelectedEntity(entity.toLowerCase())}
           >
             {entity}

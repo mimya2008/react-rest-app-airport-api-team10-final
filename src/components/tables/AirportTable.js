@@ -93,13 +93,13 @@ function AirportTable() {
 
       {!loading && !error && airports.length > 0 ? (
         <div className="table-responsive">
-          <table className="table table-bordered table-striped">
-            <thead className="table-light">
+          <table className="data-table">
+            <thead>
               <tr>
                 <th>ID</th>
                 <th>Code</th>
                 <th>Name</th>
-                <th>Actions</th>
+                <th className="actions-col">Actions</th>
               </tr>
             </thead>
             <tbody>

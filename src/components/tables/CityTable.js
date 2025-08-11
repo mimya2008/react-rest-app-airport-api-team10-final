@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import '../styles.css';
 
 function CityTable() {
   const [cities, setCities] = useState([]);
@@ -89,14 +90,14 @@ function CityTable() {
 
       {!loading && !error && cities.length > 0 ? (
         <div className="table-responsive">
-          <table className="table table-bordered table-striped">
-            <thead className="table-light">
+          <table className="data-table">
+            <thead>
               <tr>
                 <th>ID</th>
                 <th>Name</th>
                 <th>State</th>
                 <th>Population</th>
-                <th>Actions</th>
+                <th className="actions-col">Actions</th>
               </tr>
             </thead>
             <tbody>

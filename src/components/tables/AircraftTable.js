@@ -98,14 +98,14 @@ function AircraftTable() {
 
       {!loading && !error && aircraftList.length > 0 ? (
         <div className="table-responsive">
-          <table className="table table-bordered table-striped">
-            <thead className="table-light">
+          <table className="data-table">
+            <thead>
               <tr>
                 <th>ID</th>
                 <th>Type</th>
                 <th>Airline Name</th>
                 <th>Passenger Capacity</th>
-                <th>Actions</th>
+                <th className="actions-col">Actions</th>
               </tr>
             </thead>
             <tbody>

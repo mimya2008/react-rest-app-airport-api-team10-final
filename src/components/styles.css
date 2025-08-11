@@ -106,7 +106,7 @@ body {
     border-collapse: collapse;
     width: 100%;
     margin-top: 1rem;
-    border: 2px solid #ccc; /* Table outer border */
+    border: 2px solid #ccc;
   }
 
 
@@ -134,7 +134,6 @@ body {
     color: #222;
   }
 
-  
   .view-button:hover,
   .btn-arrivals:hover,
   .btn-departures:hover,
@@ -142,6 +141,31 @@ body {
   .departures-button:hover {
     background-color: rgba(255, 255, 255, 0.1);
     transform: scale(1.05);
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  border: 2px solid #ccc;
+}
+
+.data-table th,
+.data-table td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+}
+
+.data-table th {
+  background-color: transparent;
+  font-weight: 700;
+  color: inherit;
+}
+
+.actions-col {
+  width: 160px;
+  white-space: nowrap;
 }
 
 .airport-image, .plane-image {

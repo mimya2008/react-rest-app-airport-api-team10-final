@@ -141,8 +141,8 @@ function FlightTable() {
 
       {!loading && !error && flights.length > 0 ? (
         <div className="table-responsive">
-          <table className="table table-bordered table-striped">
-            <thead className="table-light">
+          <table className="data-table">
+            <thead>
               <tr>
                 <th>ID</th>
                 <th>Flight #</th>
@@ -152,7 +152,7 @@ function FlightTable() {
                 <th>Date/Time</th>
                 <th>Airline</th>
                 <th>Aircraft</th>
-                <th>Actions</th>
+                <th className="actions-col">Actions</th>
               </tr>
             </thead>
             <tbody>

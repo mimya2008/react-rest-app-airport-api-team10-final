@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import CityTable from './components/tables/CityTable';
 import AirportTable from './components/tables/AirportTable';
 import AirlineTable from './components/tables/AirlineTable';
@@ -10,10 +11,17 @@ const entities = ['City', 'Airport', 'Airline', 'Aircraft', 'Passenger', 'Flight
 
 function AdminDashboard() {
   const [selectedEntity, setSelectedEntity] = useState('');
+  const navigate = useNavigate();
 
   return (
     <div className="container my-5">
       <h1 className="mb-4 text-center">Admin Dashboard</h1>
+
+      <div style={{ position: 'fixed', top: '20px', left: '20px', zIndex: 1000 }}>
+        <button className="admin-button" onClick={() => navigate('/')}>
+          Home
+        </button>
+      </div>
 
       <div className="d-flex flex-wrap justify-content-center gap-3 mb-5">
         {entities.map((entity) => (

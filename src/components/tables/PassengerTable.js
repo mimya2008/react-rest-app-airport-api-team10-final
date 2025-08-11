@@ -113,15 +113,15 @@ function PassengerTable() {
 
       {!loading && !error && passengers.length > 0 ? (
         <div className="table-responsive">
-          <table className="table table-bordered table-striped">
-            <thead className="table-light">
+          <table className="data-table">
+            <thead>
               <tr>
                 <th>ID</th>
                 <th>First Name</th>
                 <th>Last Name</th>
                 <th>Phone</th>
                 <th>Aircraft IDs</th>
-                <th>Actions</th>
+                <th className="actions-col">Actions</th>
               </tr>
             </thead>
             <tbody>
